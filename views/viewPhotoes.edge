@@ -1,0 +1,19 @@
+@layout('layout.app')
+@section('content')
+    <div class="row ">
+        @each(photo in photoes)
+            <div class="card col-md-3 m-1 ">
+                <img src="{{photo.path}}" class="card-img-top" alt="motasem">
+                <div class="card-body">
+                    <h5 class="card-title">name: {{photo.name}}</h5>
+                    <p class="crad-text">Publish at: {{photo.date.getFullYear()}}-{{photo.date.getMonth()}}-{{photo.date.getDate()}} {{photo.date.getHours()}}:{{photo.date.getMinutes()}}</p>
+                    <div class="row" style="display:flex; flex-direction:column">
+                    <input type="submit" class="btn btn-success edit" value="Edit" data-id="{{photo._id}}" data-info="photo">
+                    <input type="submit" class="btn btn-danger delete" value="Delete" data-id="{{photo._id}}" data-info="photo">
+                    </div>
+                </div>
+            </div>
+            
+        @endeach
+    </div>
+@endsection

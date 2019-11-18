@@ -1,0 +1,33 @@
+@layout('layout.app')
+
+@section('content')
+<div class="row">
+        @each(pack in packs)  
+        <div class="card col-md-3 m-1 ">
+            <img src="/image/folder.jpg" class="card-img-top" alt="motasem">
+            <div class="card-body">
+            <h5 class="card-title">name: {{pack.name}}</h5>
+                <p class="crad-text">Publish at: {{pack.date.getFullYear()}}-{{pack.date.getMonth()}}-{{pack.date.getDate()}} {{pack.date.getHours()}}:{{pack.date.getMinutes()}} </p>
+                <div class="row" style=" display:flex; flex-direction:column">
+                <form action="/view/folder/{{pack._id}}">
+                        <input type="submit" class="btn btn-primary view" value="view" data-id="{{pack._id}}" data-info="folder">
+                    </form>
+                <input type="submit" class="btn btn-success edit" value="Edit" data-id="{{pack._id}}" data-info="folder">
+                <input type="submit" class="btn btn-danger delete" value="Delete" data-id="{{pack._id}}" data-info="folder">
+                </div>
+            </div>
+        </div>
+        
+        @endeach
+</div>
+    <div class="dropdown">
+        <img src="/image/add.png" class="add rounded-circle dropdown-toggle"  alt=""id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <form class="dropdown-item" method="post" action="/addfolder">
+                <input type="text"  placeholder="name" name="name">
+                <input type="submit" value="Create" class="btn btn-success">
+            </form>
+            
+        </div>
+    </div>
+@endsection

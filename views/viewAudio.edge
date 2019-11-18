@@ -1,0 +1,27 @@
+@layout('layout.app')
+@section('content')
+    <div class="row mx-1 viewData">
+        @each(audio in audios)
+            <div class="card col-md-4 m-3 px-1 p-auto ">
+                <audio controls class="px-auto">
+                    <source src="{{audio.path}}" type="audio/mpeg">
+                </audio>              
+                <div class="card-body">
+                <h5 class="card-title">name: {{audio.name}}</h5>
+                <p class="crad-text">Publish at: {{audio.date.getFullYear()}}-{{audio.date.getMonth()}}-{{audio.date.getDate()}} {{audio.date.getHours()}}:{{audio.date.getMinutes()}}</p>
+                <div class="row" style="display:flex; flex-direction:column">
+                <form action="/update/audio/{{audio._id}}" method="put">
+                        <input type="submit" class="btn btn-success edit" value="Edit" data-id="{{audio._id}}" data-info="audio">
+                    </form>
+                    <form action="/delete/audio/{{audio._id}}" method="delete">
+                        <input type="submit" class="btn btn-danger delete" value="Delete" data-id="{{audio._id}}" data-info="audio">
+                    </form>
+                    </div>
+
+            </div>
+            </div>
+        @endeach
+    </div>
+    
+@endsection
+

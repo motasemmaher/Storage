@@ -1,0 +1,72 @@
+@layout('layout.app')
+@section('content')
+<div class="row viewData">
+        @each(pack in Search.Folders)  
+        <div class="card col-md-3 m-1 ">
+            <img src="/image/folder.jpg" class="card-img-top" alt="motasem">
+            <div class="card-body">
+            <h5 class="card-title">name: {{pack.name}}</h5>
+                <p class="crad-text">Publish at: {{pack.date.getFullYear()}}-{{pack.date.getMonth()}}-{{pack.date.getDate()}} {{pack.date.getHours()}}:{{pack.date.getMinutes()}} </p>
+                <div class="row" style=" display:flex; flex-direction:column">
+                <form action="/view/folder/{{pack._id}}">
+                        <input type="submit" class="btn btn-primary view" value="view" data-id="{{pack._id}}" data-info="folder">
+                    </form>
+                <input type="submit" class="btn btn-success edit" value="Edit" data-id="{{pack._id}}" data-info="folder">
+                <input type="submit" class="btn btn-danger delete" value="Delete" data-id="{{pack._id}}" data-info="folder">
+                </div>
+            </div>
+        </div>
+        
+        @endeach
+    @each(audio in Search.Audios)
+        <div class="card col-md-3 m-1 ">
+            <audio controls>
+                <source src="{{audio.path}}" type="audio/mpeg">
+            </audio>              
+            <div class="card-body">
+            <h5 class="card-title">name: {{audio.name}}</h5>
+            <p class="crad-text">Publish at: {{audio.date.getFullYear()}}-{{audio.date.getMonth()}}-{{audio.date.getDate()}} {{audio.date.getHours()}}:{{audio.date.getMinutes()}}</p>
+            <div class="row" style="display:flex; flex-direction:column">
+                <form action="/update/audio/{{audio._id}}" method="put">
+                        <input type="submit" class="btn btn-success edit" value="Edit" data-id="{{audio._id}}" data-info="audio">
+                    </form>
+                    <form action="/delete/audio/{{audio._id}}" method="delete">
+                        <input type="submit" class="btn btn-danger delete" value="Delete" data-id="{{audio._id}}" data-info="audio">
+                    </form>
+                    </div>    
+        </div>
+        </div>
+    @endeach
+    @each(photo in Search.Photos)
+        <div class="card col-md-2 m-1 ">
+        <img src="{{photo.path}}" class="card-img-top" alt="motasem" type="{{photo.type}}">
+            <div class="card-body">
+                <h5 class="card-title">name: {{photo.name}}</h5>
+            <p class="crad-text">Publish at: {{photo.date.getFullYear()}}-{{photo.date.getMonth()}}-{{photo.date.getDate()}} {{photo.date.getHours()}}:{{photo.date.getMinutes()}}</p>
+            <div class="row" style="display:flex; flex-direction:column">
+                <input type="submit" class="btn btn-success edit" value="Edit" data-id="{{photo._id}}" data-info="photo">
+                <input type="submit" class="btn btn-danger delete" value="Delete" data-id="{{photo._id}}" data-info="photo">
+                </div>    
+        </div>
+        </div>
+    @endeach
+    @each(video in Search.Videos)
+        <div class="card col-md-3 m-1 " style="height:300px">  
+            <video  style="height:200px" class="pt-1" controls >
+                <source src="{{video.path}}" type='{{video.type}}'/>
+            </video>               
+            <div class="card-body">
+                <h5 class="card-title">name: {{video.name}}</h5>
+                <p class="crad-text">Publish at: {{video.date.getFullYear()}}-{{video.date.getMonth()}}-{{video.date.getDate()}} {{video.date.getHours()}}:{{video.date.getMinutes()}}</p>
+                <div class="row" style="display:flex; flex-direction:column">
+                    <input type="submit" class="btn btn-success edit" value="Edit" data-id="{{video._id}}" data-info="video">
+                    <input type="submit" class="btn btn-danger delete" value="Delete" data-id="{{video._id}}" data-info="video">
+                </div>
+            </div>
+        </div>    
+    @endeach
+
+
+</div>
+
+@endsection

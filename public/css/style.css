@@ -1,0 +1,57 @@
+.data {
+  border: none !important;
+  border-bottom: 2px solid black !important;
+  width: 500px; }
+
+.sign_up {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  width: 75%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%); }
+
+.inputText {
+  border: none;
+  border-bottom: 2px solid black; }
+
+.upload {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -webkit-transform: translate(10%, 0);
+  -ms-transform: translate(10%, 0);
+  transform: translate(10%, 0); }
+
+  .add{
+    height: 75px;
+    border: solid 6px black;
+    position: absolute;
+    bottom: 30px;
+    right: 30px;
+    position: fixed;
+    cursor: pointer;
+  }
+
+  .viewData{
+   margin-top: 75px;
+  }

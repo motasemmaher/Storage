@@ -1,0 +1,29 @@
+.data{
+    border:none !important;
+    border-bottom:2px solid black !important;  
+    width: 500px;
+
+}
+.sign_up{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 75%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+
+.inputText{
+    border: none;
+    border-bottom: 2px solid black;
+}
+.upload{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    transform: translate(10%,0);
+
+}

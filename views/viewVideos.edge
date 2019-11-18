@@ -1,0 +1,26 @@
+@layout('layout.app')
+
+@section('content')
+
+  <div class="row">
+    @each(video in videoes)
+        <div class="card col-md-3 m-1 " style="height:400px">  
+            <video  style="height:200px" class="pt-1" controls >
+                <source src="{{video.path}}" type='{{video.type}}'/>
+        </video>               
+            <div class="card-body">
+                <h5 class="card-title">name: {{video.name}}</h5>
+                <p class="crad-text">Publish at: {{video.date.getFullYear()}}-{{video.date.getMonth()}}-{{video.date.getDate()}} {{video.date.getHours()}}:{{video.date.getMinutes()}}</p>
+                <div class="row" style="display:flex; flex-direction:column">
+                        <input type="submit" class="btn btn-success edit" value="Edit" data-id="{{video._id}}" data-info="video">
+                        <input type="submit" class="btn btn-danger delete" value="Delete" data-id="{{video._id}}" data-info="video">
+                    </div>
+            </div>
+         
+        </div>  
+          
+    @endeach
+  </div>
+    
+    
+@endsection
